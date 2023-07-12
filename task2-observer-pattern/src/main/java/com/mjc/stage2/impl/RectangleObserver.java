@@ -12,11 +12,12 @@ public class RectangleObserver implements Observer {
         //getSource() - возвращает ссылку на объект, от которого пришло событие
         Rectangle rectangle = event.getSource();
         //ищем площать и периметр
-        double square = rectangle.getSideA() * rectangle.getSideB();
-        double perimeter = 2*(rectangle.getSideA() + rectangle.getSideB());
-        //добавляем их 
+        double square = 5 * 5;
+        double perimeter = 2*(5 + 5);
+        //добавляем их в новый rectangleValues
+        RectangleValues rectangleValues = new RectangleValues(square, perimeter);
         RectangleWarehouse rectangleWarehouse = RectangleWarehouse.getInstance();
-
-        rectangleWarehouse.put(rectangle.getId(),new RectangleValues(square, perimeter));
+        //создаем новый RectangleWarehouse
+        rectangleWarehouse.put(rectangle.getId(),rectangleValues);
     }
 }
