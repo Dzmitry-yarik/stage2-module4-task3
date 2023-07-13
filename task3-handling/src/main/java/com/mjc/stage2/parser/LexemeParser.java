@@ -15,7 +15,7 @@ public class LexemeParser extends AbstractTextParser {
             AbstractTextComponent absComponent = new TextComponent(TextComponentType.SYMBOL);
             abstractTextComponent.add(absComponent);
             AbstractTextParser parser = new WordParser();
-            parser.parse(component,lex);
+            parser.parse(absComponent,lex);
         }
     }
 }
