@@ -24,7 +24,7 @@ public class LexemeParser extends AbstractTextParser{
         Character[] newChars = chars2.stream().toArray(Character[]::new);
 
         for (char charX : newChars) {
-            abstractTextComponent.add(new SymbolLeaf(TextComponentType.SYMBOL, charX));
+            abstractTextComponent.add(new SymbolLeaf(TextComponentType.WORD, charX));
         }
     }
 }
