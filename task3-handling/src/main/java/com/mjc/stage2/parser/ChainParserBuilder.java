@@ -10,12 +10,17 @@ public class ChainParserBuilder {
     }
 
     public ChainParserBuilder setParser(AbstractTextParser abstractTextParser) {
-        // Write your code here!
+        parsers.add(abstractTextParser);
         return this;
     }
-
     public AbstractTextParser build() {
-        // Write your code here!
-        return null;
+        AbstractTextParser abstractTextParser = null;
+
+        for (int i = 0; i < parsers.size() - 1; i++) {
+            abstractTextParser = parsers.get(i);
+            AbstractTextParser nextParser = parsers.get(i + 1);
+            abstractTextParser.setNextParser(nextParser);
+        }
+        return abstractTextParser;
     }
 }
