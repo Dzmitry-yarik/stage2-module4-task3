@@ -10,7 +10,7 @@ public class WordParser extends AbstractTextParser{
         char[] chars = string.toCharArray();
 
         for (char ch : chars) {
-            abstractTextComponent.add(new SymbolLeaf(ch, TextComponentType.WORD));
+            abstractTextComponent.add(new SymbolLeaf(TextComponentType.WORD, ch));
         }
     }
 }
