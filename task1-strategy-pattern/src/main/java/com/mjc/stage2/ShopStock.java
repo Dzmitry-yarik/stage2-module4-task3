@@ -11,12 +11,7 @@ public class ShopStock {
         this.productList = productList;
     }
 
-    public List<Product> executeFilteringStrategy(FilteringStrategy filteringStrategy) {
-        List newList = new ArrayList<>();
-        for (int i = 0; i < productList.size(); i++) {
-            newList.add(filteringStrategy.filter(productList.get(i)));
-        }
-        System.out.println(newList);
-        return newList;
+    public List<Product> executeFilteringStrategy(FilteringStrategy filteringStrategy){
+        return productList.stream().filter(filteringStrategy::filter).collect(Collectors.toList());
     }
 }
