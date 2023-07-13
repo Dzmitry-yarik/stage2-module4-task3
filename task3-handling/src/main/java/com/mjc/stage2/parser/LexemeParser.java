@@ -11,20 +11,22 @@ public class LexemeParser extends AbstractTextParser{
     private static final String LEXEME_REGEX = "\\s+";
     private static final String WORD_REGEX = "\\w[\\w!=?():]+";
 
+import com.mjc.stage2.entity.AbstractTextComponent;
+import com.mjc.stage2.entity.TextComponent;
+import com.mjc.stage2.entity.TextComponentType;
+
+public class LexemeParser extends AbstractTextParser {
+    private static final String LEXEME_REGEX = "\\s+";
+    private static final String WORD_REGEX = "\\w[\\w!=?():]+";
+
     @Override
     public void parse(AbstractTextComponent abstractTextComponent, String string) {
-        String[] str = string.split(LEXEME_REGEX);
-        List<Character> chars2 = new ArrayList<>();
-        for (String x: str) {
-            char[] chars = x.toCharArray();
-            for (int i = 0; i < chars.length ; i++) {
-                chars2.add(chars[i]);
-            }
-        }
-        Character[] newChars = chars2.stream().toArray(Character[]::new);
-
-        for (char charX : newChars) {
-            abstractTextComponent.add(new SymbolLeaf(TextComponentType.WORD, charX));
+        String [] lexemes = string.split(LEXEME_REGEX);
+        for(String lex : lexemes){
+            AbstractTextComponent absComponent = new TextComponent(TextComponentType.SYMBOL);
+            abstractTextComponent.add(absComponent);
+            AbstractTextParser parser = new WordParser();
+            parser.parse(component,lex);
         }
     }
 }
