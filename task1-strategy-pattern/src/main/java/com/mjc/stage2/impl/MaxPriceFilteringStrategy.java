@@ -5,13 +5,11 @@ import com.mjc.stage2.Product;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class MaxPriceFilteringStrategy implements  FilteringStrategy{
+public class MaxPriceFilteringStrategy implements FilteringStrategy {
     private double maxPrice;
 
     @Override
     public boolean filter(Product product) {
-     if (product.getPrice() <= maxPrice){
-         return true;
-     } else return false;
+        return product.getPrice() <= maxPrice;
     }
 }
